@@ -1,0 +1,1 @@
+const arrayTrial = ['eu','au','ti']
