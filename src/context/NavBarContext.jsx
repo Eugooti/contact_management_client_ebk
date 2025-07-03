@@ -23,7 +23,7 @@ export const NavBarProvider = () => {
                         </div>
                         <ProfileDropdown />
                     </div>
-                    <Content style={{ padding: "0 48px" }}>
+                    <Content style={{ padding: "0 48px",minHeight: "84vh" }}>
                         <Outlet />
                     </Content>
                     <Footer style={{ textAlign: "center" }}>

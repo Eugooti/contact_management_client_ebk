@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management System - User Manual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #1890ff;
+            border-bottom: 2px solid #1890ff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1890ff;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        blockquote {
+            border-left: 4px solid #1890ff;
+            padding-left: 15px;
+            color: #666;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff2e8;
+            border-left: 4px solid #fa8c16;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Management System - User Manual</h1>
+    
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#dashboard-overview">Dashboard Overview</a></li>
+        <li><a href="#managing-contacts">Managing Contacts</a></li>
+        <li><a href="#searching-and-filtering">Searching and Filtering</a></li>
+        <li><a href="#contact-details">Contact Details</a></li>
+        <li><a href="#adding-new-contacts">Adding New Contacts</a></li>
+        <li><a href="#sharing-contacts">Sharing Contacts</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+    
+    <h2 id="introduction">Introduction</h2>
+    <p>Welcome to the Contact Management System (CMS) - your centralized platform for efficiently managing organizational contacts. This user-friendly application allows you to store, organize, search, and share contact information for various organizations and individuals.</p>
+    
+    <h3>Key Features</h3>
+    <ul>
+        <li><strong>Comprehensive Contact Management</strong>: Add, edit, delete, and share contacts with ease</li>
+        <li><strong>Advanced Search and Filtering</strong>: Quickly find contacts using search and category filters</li>
+        <li><strong>Multiple View Options</strong>: Switch between table and card views based on your preference</li>
+        <li><strong>Contact Sharing</strong>: Share contact information via email with colleagues</li>
+        <li><strong>Responsive Design</strong>: Access the system from any device with a consistent experience</li>
+    </ul>
+    
+    <h2 id="getting-started">Getting Started</h2>
+    
+    <h3>Logging In</h3>
+    <ol>
+        <li>Open your web browser and navigate to the CMS application URL</li>
+        <li>Enter your username and password in the login form</li>
+        <li>Click the "Login" button to access the system</li>
+    </ol>
+    
+    <div class="note">
+        <p>If you don't have login credentials, please contact your system administrator.</p>
+    </div>
+    
+    <h2 id="dashboard-overview">Dashboard Overview</h2>
+    <p>After logging in, you'll be directed to the main dashboard. The dashboard provides an overview of your contacts and quick access to key features.</p>
+    
+    <h3>Main Components</h3>
+    <ul>
+        <li><strong>Header</strong>: Contains the application logo, navigation menu, and user profile</li>
+        <li><strong>Search Bar</strong>: Allows you to search for contacts by name, type, or other attributes</li>
+        <li><strong>View Toggle</strong>: Switch between table and card views</li>
+        <li><strong>Filter Tabs</strong>: Filter contacts by type (Ministries, Counties, etc.)</li>
+        <li><strong>Contact List</strong>: Displays your contacts in the selected view mode</li>
+    </ul>
+    
+    <h2 id="managing-contacts">Managing Contacts</h2>
+    <p>The Contact Management System organizes contacts by organization type, making it easy to find and manage specific contacts.</p>
+    
+    <h3>Contact Types</h3>
+    <ul>
+        <li><strong>Presidency</strong>: Presidential and executive office contacts</li>
+        <li><strong>Counties</strong>: County government contacts</li>
+        <li><strong>Ministries</strong>: Government ministry contacts</li>
+        <li><strong>State Departments</strong>: State department contacts</li>
+        <li><strong>Parastatals</strong>: Parastatal organization contacts</li>
+        <li><strong>Commissions</strong>: Commission contacts</li>
+        <li><strong>Boards</strong>: Board contacts</li>
+        <li><strong>Learning Institutions</strong>: Educational institution contacts</li>
+        <li><strong>Private Institutions</strong>: Private sector organization contacts</li>
+    </ul>
+    
+    <h2 id="searching-and-filtering">Searching and Filtering</h2>
+    
+    <h3>Using the Search Bar</h3>
+    <ol>
+        <li>Click on the search bar at the top of the contacts page</li>
+        <li>Type your search query (name, organization, etc.)</li>
+        <li>Results will update automatically as you type</li>
+    </ol>
+    
+    <h3>Using Filters</h3>
+    <ol>
+        <li>Click on the filter tabs below the search bar</li>
+        <li>Select a category to filter contacts (All Contacts, Presidency, Counties, etc.)</li>
+        <li>The contact list will update to show only contacts of the selected type</li>
+    </ol>
+    
+    <h3>Changing View Mode</h3>
+    <ol>
+        <li>Click the list icon to view contacts in table format</li>
+        <li>Click the grid icon to view contacts in card format</li>
+    </ol>
+    
+    <h2 id="contact-details">Contact Details</h2>
+    
+    <h3>Viewing Contact Details</h3>
+    <ol>
+        <li>Click on any contact in the list or card view</li>
+        <li>A drawer will open on the right side showing detailed information about the contact</li>
+        <li>Contact details include:
+            <ul>
+                <li>Organization information</li>
+                <li>Contact persons</li>
+                <li>Address information</li>
+                <li>Communication details</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h3>Contact Person Information</h3>
+    <p>Each organization can have multiple contact persons. For each contact person, you can view:</p>
+    <ul>
+        <li>Name and salutation</li>
+        <li>Professional title</li>
+        <li>Office/department</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+    </ul>
+    
+    <h2 id="adding-new-contacts">Adding New Contacts</h2>
+    
+    <h3>Adding a New Organization</h3>
+    <ol>
+        <li>Click the "Add New Contact" button in the header section</li>
+        <li>Select the organization type (Public or Private)</li>
+        <li>Fill in the required information in the form:
+            <ul>
+                <li>Organization name</li>
+                <li>Organization type</li>
+                <li>Sector/industry</li>
+                <li>Address information</li>
+            </ul>
+        </li>
+        <li>Click "Next" to proceed to adding contact persons</li>
+        <li>Add contact person details:
+            <ul>
+                <li>Name</li>
+                <li>Title/position</li>
+                <li>Contact information</li>
+            </ul>
+        </li>
+        <li>Review the information and click "Submit" to create the contact</li>
+    </ol>
+    
+    <h2 id="sharing-contacts">Sharing Contacts</h2>
+    
+    <h3>Sharing via Email</h3>
+    <ol>
+        <li>Open the contact you wish to share</li>
+        <li>Click on the contact person you want to share</li>
+        <li>Click the share icon</li>
+        <li>Enter the recipient's email address</li>
+        <li>Click "Send" to share the contact information</li>
+    </ol>
+    
+    <p>The recipient will receive an email with the contact details in a formatted card.</p>
+    
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    
+    <h3>Common Issues and Solutions</h3>
+    
+    <div class="warning">
+        <p><strong>Issue</strong>: Unable to log in</p>
+        <p><strong>Solution</strong>:</p>
+        <ul>
+            <li>Verify your username and password</li>
+            <li>Check if Caps Lock is enabled</li>
+            <li>Contact your system administrator if the problem persists</li>
+        </ul>
+    </div>
+    
+    <div class="warning">
+        <p><strong>Issue</strong>: Contact not appearing in search results</p>
+        <p><strong>Solution</strong>:</p>
+        <ul>
+            <li>Try using broader search terms</li>
+            <li>Check if you have the correct filter selected</li>
+            <li>Verify that the contact exists in the system</li>
+        </ul>
+    </div>
+    
+    <div class="warning">
+        <p><strong>Issue</strong>: Unable to add a new contact</p>
+        <p><strong>Solution</strong>:</p>
+        <ul>
+            <li>Ensure all required fields are filled</li>
+            <li>Check your internet connection</li>
+            <li>Verify you have the necessary permissions</li>
+        </ul>
+    </div>
+    
+    <h3>Getting Help</h3>
+    <p>If you encounter any issues not covered in this manual, please contact your system administrator or the IT support team.</p>
+    
+    <div class="footer">
+        <p>© 2025 Contact Management System. All rights reserved.</p>
+    </div>
+</body>
+</html>

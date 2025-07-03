@@ -2,7 +2,7 @@ import axios from "axios";
 import {getFromSessionStorage, removeSessionItem, setSessionStorage} from "../SessionStorage/sessionStorage.js";
 
 // Base URL for API
-export const BASE_URL = ' http://localhost:8080/ebk';
+export const BASE_URL = 'http://localhost:8080/ebk';
 
 // Create an axios instance with base URL and default headers
 export const instance = axios.create({
@@ -39,13 +39,16 @@ const refreshAccessToken = async () => {
             {
                 headers: {
                     "Content-Type": "application/json",
-                    ...(refreshToken ? {"Authorization": `Bearer ${refreshToken}`} : {}), // Use "Authorization" header by default
-                    // Or if your API requires "RefreshToken", use:
-                    // ...(token ? { "RefreshToken": `Bearer ${token}` } : {}),
+                    referrerPolicy: "no-referrer",
+                    redirect: 'follow',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    ...(refreshToken ? {Authorization: `Bearer ${refreshToken}`} : {}),
                 },
             }
         );
     } catch (error) {
+        console.error('Error refreshing access token:', error);
         return null;
     }
 };
@@ -66,10 +69,14 @@ instance.interceptors.response.use(
         const status = error.response?.status;
         if (status === 401) {
             const newAccessToken = await refreshAccessToken();
-            if (newAccessToken.status===200){
-                setSessionStorage('authToken',newAccessToken.data.newAccessToken);
+            if (newAccessToken.status === 200) {
+                const newToken = newAccessToken.data.authToken;
+                setSessionStorage('authToken', newToken);
+
                 const originalRequest = error.config;
-                return instance(originalRequest);
+                originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
+
+                return instance(originalRequest); // Retry the original request with new token
             }else {
                 await navigateToLogin()
             }

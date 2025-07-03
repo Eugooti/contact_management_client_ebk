@@ -15,12 +15,13 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { readContacts } from '../Redux/Reducers/contactsSlice';
-import ContactCard from '../Components/cards/ContactCard';
 import {LocationOn, PersonAdd} from '@mui/icons-material';
 import AddressCard from "../Components/cards/AddressCard.jsx";
 import AddressModal from "../Components/Modals/AddressModal.jsx";
 import ContactModal from "../Components/Modals/ContactModal.jsx";
 import UpdateContactDrawer from "../Components/Drawers/UpdateContactDrawer.jsx";
+import {getFromSessionStorage} from "../utils/SessionStorage/sessionStorage.js";
+import ContactCard from "../Components/cards/ContactCard.jsx";
 
 const { Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -299,6 +300,8 @@ const ContactManagement = () => {
         );
     };
 
+    const userRole = getFromSessionStorage('user')?.responseData
+
 
     return (
         <Layout className="min-h-screen">
@@ -312,31 +315,33 @@ const ContactManagement = () => {
                         <p className="text-blue-100 text-lg">
                             Centralized platform for managing all organizational contacts.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-                            <Popover
-                                content={
-                                    <div className="flex flex-col gap-2">
-                                        <Button block icon={<TeamOutlined />} onClick={() => navigate('/public')}>
-                                            Public ORG
-                                        </Button>
-                                        <Button block icon={<TeamOutlined />} onClick={() => navigate('/private')}>
-                                            Private ORG
-                                        </Button>
-                                    </div>
-                                }
-                                title="Select Contact Type"
-                                trigger="click"
-                            >
-                                <Button
-                                    type="primary"
-                                    size="large"
-                                    icon={<PlusOutlined />}
-                                    className="h-12 px-8 text-lg shadow-md"
+                        {userRole.role==="ADMIN"&&(
+                            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                                <Popover
+                                    content={
+                                        <div className="flex flex-col gap-2">
+                                            <Button block icon={<TeamOutlined />} onClick={() => navigate('/public')}>
+                                                Public ORG
+                                            </Button>
+                                            <Button block icon={<TeamOutlined />} onClick={() => navigate('/private')}>
+                                                Private ORG
+                                            </Button>
+                                        </div>
+                                    }
+                                    title="Select Contact Type"
+                                    trigger="click"
                                 >
-                                    Add New Contact
-                                </Button>
-                            </Popover>
-                        </div>
+                                    <Button
+                                        type="primary"
+                                        size="large"
+                                        icon={<PlusOutlined />}
+                                        className="h-12 px-8 text-lg shadow-md"
+                                    >
+                                        Add New Contact
+                                    </Button>
+                                </Popover>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -401,11 +406,14 @@ const ContactManagement = () => {
                 >
                     {selectedContact && (
                         <div className="space-y-6">
-                            <div className='flex align-midle justify-end'>
-                                <Tooltip title="Update Contact">
-                                    <Button onClick={()=>setOpenUpdateDrawer(true)} color="cyan" variant="outlined" shape="circle" icon={<EditFilled />}/>
-                                </Tooltip>
-                            </div>
+                            {userRole.role==="ADMIN"&&(
+                                <div className='flex align-midle justify-end'>
+                                    <Tooltip title="Update Contact">
+                                        <Button onClick={()=>setOpenUpdateDrawer(true)} color="cyan" variant="outlined" shape="circle" icon={<EditFilled />}/>
+                                    </Tooltip>
+                                </div>
+                            )}
+
                             <div className="flex items-center mb-4">
                                 <Avatar
                                     size={64}
@@ -480,11 +488,14 @@ const ContactManagement = () => {
                                         label: "Contacts",
                                         children: (
                                             <>
-                                                <div className="flex justify-end mb-3">
-                                                    <Button onClick={() => setModalVisible2(true)} icon={<PersonAdd />} type="link">
-                                                        Add Contact
-                                                    </Button>
-                                                </div>
+                                                {userRole.role==="ADMIN"&&(
+                                                    <div className="flex justify-end mb-3">
+                                                        <Button onClick={() => setModalVisible2(true)} icon={<PersonAdd />} type="link">
+                                                            Add Contact
+                                                        </Button>
+                                                    </div>
+                                                )}
+
                                                 <div className="grid grid-cols-1 gap-3">
                                                     {selectedContact.people?.map((item, index) => (
                                                         <div key={index}>
@@ -505,9 +516,12 @@ const ContactManagement = () => {
                                         label: "Address",
                                         children: (
                                             <>
-                                                <div className="flex align-middle justify-end">
-                                                    <Button onClick={() => setModalVisible(true)} type="link">New Address</Button>
-                                                </div>
+                                                {userRole.role==="ADMIN"&&(
+                                                    <div className="flex align-middle justify-end">
+                                                        <Button onClick={() => setModalVisible(true)} type="link">New Address</Button>
+                                                    </div>
+                                                )}
+
                                                 <div className="grid grid-cols-1 gap-3">
                                                     {selectedContact?.address.map((item, index) => (
                                                         <div key={index}>
@@ -518,11 +532,11 @@ const ContactManagement = () => {
                                             </>
                                         )
                                     },
-                                    {
-                                        key: "contactPerson",
-                                        label: "Contact Persons",
-                                        children: <></> // Empty tab for now
-                                    }
+                                    // {
+                                    //     key: "contactPerson",
+                                    //     label: "Contact Persons",
+                                    //     children: <></> // Empty tab for now
+                                    // }
                                 ]}
                             />
                         </div>

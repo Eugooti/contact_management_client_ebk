@@ -11,6 +11,7 @@ import ministrySlice from "./Reducers/ministrySlice.js";
 import stateDepartmentSlice from "./Reducers/stateDepartmentSlice.js";
 import organizationSlice from "./Reducers/organizationSlice.js";
 import peopleSlice from "./Reducers/peopleSlice.js";
+import usersSlice from "./Reducers/usersSlice.js";
 
 const rootReducer = combineReducers({
     contacts:contactsSlice,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
     stateDepartment:stateDepartmentSlice,
     organization:organizationSlice,
     people:peopleSlice,
+    users:usersSlice
 })
 
 export default(state = initialState, action) => rootReducer(state, action)
