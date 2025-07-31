@@ -25,6 +25,7 @@ const Login = () => {
             await new Promise((resolve) => setTimeout(resolve, 2000));
 
             const action = await dispatch(login(values));
+            console.log(action)
             if (action.error) {
                 messageApi.error(action.payload.message);
             } else {

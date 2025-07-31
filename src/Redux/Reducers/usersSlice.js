@@ -9,6 +9,20 @@ export const createUser = createAsyncThunk(
     }
 )
 
+export const readUsers = createAsyncThunk(
+    'users/readUsers',
+    async (_,{rejectWithValue}) => {
+        return await CRUDMethods.read('/users/read',{rejectWithValue})
+    }
+)
+
+export const updateUser = createAsyncThunk(
+    'users/updateUser',
+    async ({data,id},{rejectWithValue}) => {
+        return await CRUDMethods.update(data,`/users/update/${id}`,{rejectWithValue})
+    }
+)
+
 const userSlice = createSlice({
     name: 'users',
     initialState: initialState.Users,
@@ -30,6 +44,37 @@ const userSlice = createSlice({
                 state.error = null
                 state.user = action.payload
             })
+            .addCase(readUsers.pending, (state) => {
+                state.loading = true
+                state.error = null
+                state.usersList = null
+            })
+            .addCase(readUsers.rejected, (state,action) => {
+                state.loading = false
+                state.error = action.payload
+                state.usersList = null
+            })
+            .addCase(readUsers.fulfilled, (state,action) => {
+                state.loading = false
+                state.error = null
+                state.usersList = action.payload
+            })
+            .addCase(updateUser.pending, (state) => {
+                state.loading = true
+                state.error = null
+                state.user = null
+            })
+            .addCase(updateUser.rejected, (state,action) => {
+                state.loading = false
+                state.error = action.payload
+                state.user = null
+            })
+            .addCase(updateUser.fulfilled, (state,action) => {
+                state.loading = false
+                state.error = null
+                state.user = action.payload
+            })
+
 
     }
 })

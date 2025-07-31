@@ -12,6 +12,7 @@ import { createUser } from "../../Redux/Reducers/usersSlice.js";
 import { useNavigate } from "react-router-dom";
 import SectionHeader from "../../Components/Headings/SectionHeading.jsx";
 import { motion } from "framer-motion";
+import {useState} from "react";
 
 const CreateUser = () => {
     const [form] = useForm();
@@ -71,82 +72,69 @@ const CreateUser = () => {
                     description="Add a new system user with appropriate permissions"
                 />
 
-                <Card className="shadow-md rounded-lg">
+                <Card className="shadow-md rounded-lg ">
                     <Form
                         form={form}
                         name="new-user"
                         layout="vertical"
                         onFinish={onFormFinish}
-                        className="max-w-4xl mx-auto"
+                        // className="max-w-6xl mx-auto"
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Personal Information */}
-                            <div className="space-y-4">
-                                <h3 className="text-lg font-semibold flex items-center gap-2 text-gray-700">
-                                    <PersonIcon className="text-blue-500" />
-                                    Personal Information
-                                </h3>
+                        <div className='w-full grid grid-cols-2 gap-3'>
+                            <Form.Item
+                                label="First Name"
+                                name="firstName"
+                                rules={rules.required}
+                            >
+                                <Input
+                                    prefix={<PersonIcon className="text-gray-400" />}
+                                    size="large"
+                                    placeholder="Enter first name"
+                                />
+                            </Form.Item>
 
-                                <Form.Item
-                                    label="First Name"
-                                    name="firstName"
-                                    rules={rules.required}
-                                >
-                                    <Input
-                                        prefix={<PersonIcon className="text-gray-400" />}
-                                        size="large"
-                                        placeholder="Enter first name"
-                                    />
-                                </Form.Item>
+                            <Form.Item
+                                label="Last Name"
+                                name="lastName"
+                                rules={rules.required}
+                            >
+                                <Input
+                                    prefix={<PersonIcon className="text-gray-400" />}
+                                    size="large"
+                                    placeholder="Enter last name"
+                                />
+                            </Form.Item>
 
-                                <Form.Item
-                                    label="Last Name"
-                                    name="lastName"
-                                    rules={rules.required}
-                                >
-                                    <Input
-                                        prefix={<PersonIcon className="text-gray-400" />}
-                                        size="large"
-                                        placeholder="Enter last name"
-                                    />
-                                </Form.Item>
-                            </div>
 
-                            {/* Contact Information */}
-                            <div className="space-y-4">
-                                <h3 className="text-lg font-semibold flex items-center gap-2 text-gray-700">
-                                    <BadgeIcon className="text-blue-500" />
-                                    Contact Information
-                                </h3>
+                            <Form.Item
+                                label="Email Address"
+                                name="email"
+                                rules={rules.email}
+                                help="Must be an @ebk.go.ke email"
+                            >
+                                <Input
+                                    prefix={<EmailIcon className="text-gray-400" />}
+                                    size="large"
+                                    placeholder="username@ebk.go.ke"
+                                    type="email"
+                                />
+                            </Form.Item>
 
-                                <Form.Item
-                                    label="Email Address"
-                                    name="email"
-                                    rules={rules.email}
-                                    help="Must be an @ebk.go.ke email"
-                                >
-                                    <Input
-                                        prefix={<EmailIcon className="text-gray-400" />}
-                                        size="large"
-                                        placeholder="username@ebk.go.ke"
-                                        type="email"
-                                    />
-                                </Form.Item>
+                            <Form.Item
+                                label="Phone Number"
+                                name="phoneNumber"
+                                rules={rules.phoneNumber}
+                                help="10 digits without spaces or special characters"
+                            >
+                                <Input
+                                    prefix={<PhoneIcon className="text-gray-400" />}
+                                    size="large"
+                                    placeholder="07XXXXXXXX"
+                                    maxLength={10}
+                                />
+                            </Form.Item>
 
-                                <Form.Item
-                                    label="Phone Number"
-                                    name="phoneNumber"
-                                    rules={rules.phoneNumber}
-                                    help="10 digits without spaces or special characters"
-                                >
-                                    <Input
-                                        prefix={<PhoneIcon className="text-gray-400" />}
-                                        size="large"
-                                        placeholder="07XXXXXXXX"
-                                        maxLength={10}
-                                    />
-                                </Form.Item>
-                            </div>
+
                         </div>
 
                         <Divider className="my-6" />

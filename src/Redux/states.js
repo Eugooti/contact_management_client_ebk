@@ -58,7 +58,7 @@ export const initialState = {
         loading:false,
         error: null,
         user:null,
-        users:null,
+        usersList:null,
     }
 }
 

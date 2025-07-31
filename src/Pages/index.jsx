@@ -10,6 +10,7 @@ const CreateUser = lazy(() => import("./Users/CreateUser.jsx"));
 const Unauthorized = lazy(() => import("./Auth/Unauthorized.jsx"));
 import {NavBarProvider} from "../context/NavBarContext.jsx";
 import {Button, Result} from "antd";
+import ManageUsers from "./Users/ManageUsers.jsx";
 
 
 // Loading component
@@ -71,6 +72,7 @@ const Pages = () => {
                                   <Route exact path='/private' element={<PrivateOrganization/>}/>
                                   <Route exact path='/public' element={<PublicOrganization/>}/>
                                   <Route exact path='/new_user' element={<CreateUser/>}/>
+                                  <Route exact path='/manage_users' element={<ManageUsers/>}/>
                               </Route>
                           </Route>
                       </Route>
