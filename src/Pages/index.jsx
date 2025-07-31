@@ -7,10 +7,11 @@ const ProtectedRoutesContext = lazy(() => import("../context/ProtectedRoutesCont
 const PublicOrganization = lazy(() => import("./CreateOrganization/PublicOrganization/Index.jsx"));
 const PrivateOrganization = lazy(() => import("./CreateOrganization/PrivateOrganization/index.jsx"));
 const CreateUser = lazy(() => import("./Users/CreateUser.jsx"));
+const ManageUsers = lazy(() => import("./Users/ManageUsers.jsx"));
+const UserProfile = lazy(() => import("./Users/UserProfile.jsx"));
 const Unauthorized = lazy(() => import("./Auth/Unauthorized.jsx"));
 import {NavBarProvider} from "../context/NavBarContext.jsx";
 import {Button, Result} from "antd";
-import ManageUsers from "./Users/ManageUsers.jsx";
 
 
 // Loading component
@@ -67,6 +68,7 @@ const Pages = () => {
                           <Route element={<NavBarProvider/>}>
                               <Route element={<ProtectedRoutesContext allowedRoles={["ADMIN","USER"]}/>}>
                                   <Route exact path="/" element={<ContactManagement/>}/>
+                                  <Route exact path="/profile" element={<UserProfile/>}/>
                               </Route>
                               <Route element={<ProtectedRoutesContext allowedRoles={["ADMIN"]}/>}>
                                   <Route exact path='/private' element={<PrivateOrganization/>}/>

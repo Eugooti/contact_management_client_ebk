@@ -19,7 +19,7 @@ export const logout = createAsyncThunk(
 export const updatePassword = createAsyncThunk(
     'auth/updatePassword',
     async({data,id},{rejectWithValue})=>{
-        return await CRUDMethods.update(data,`/auth/updatePassword/${id}`,{rejectWithValue})
+        return await CRUDMethods.update(data,`/auth/changePassword/${id}`,{rejectWithValue})
     }
 )
 

@@ -26,7 +26,7 @@ const ProfileDropdown = () => {
     const userRole = getFromSessionStorage('user')?.responseData
 
     const userNavigation = userRole.role==="ADMIN"? [
-        { label: "Profile", onclick: () => console.log("Profile Clicked") },
+        { label: "Profile", onclick: () => navigate('/profile') },
         { label: "Manage Users", onclick: () => navigate('/manage_users') },
         { label: "Sign out", onclick: () => Logout() },
     ]:[
