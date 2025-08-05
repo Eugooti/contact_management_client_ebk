@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import {
     Form,
     Input,
@@ -84,9 +84,13 @@ const TABLE_COLUMNS = [
 ];
 
 const EditableCell = ({
+                          // eslint-disable-next-line react/prop-types
                           editing,
+                          // eslint-disable-next-line react/prop-types
                           dataIndex,
+                          // eslint-disable-next-line react/prop-types
                           title,
+                          // eslint-disable-next-line react/prop-types
                           inputType,
                           record,
                           children,
@@ -111,6 +115,7 @@ const EditableCell = ({
                     rules={[
                         {
                             required: true,
+                            // eslint-disable-next-line react/prop-types
                             message: `Please enter ${title.toLowerCase()}`
                         },
                         dataIndex === 'email' && {
