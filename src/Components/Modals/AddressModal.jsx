@@ -76,7 +76,7 @@ const AddressModal = ({modalVisible,setModalVisible,contactId}) => {
               >
                   <div className='grid md:grid-cols-2 gap-2'>
 
-                      <Form.Item rules={rules.required} label="Country" name="state">
+                      <Form.Item rules={rules.required} label="Country" name="country">
                           <Input size="large" />
                       </Form.Item>
                       <Form.Item rules={rules.required} label="City" name="city">

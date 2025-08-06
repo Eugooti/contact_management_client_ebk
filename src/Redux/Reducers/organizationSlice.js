@@ -19,49 +19,49 @@ export const updateCommission = createAsyncThunk(
 export const updateParastatal = createAsyncThunk(
     'parastatal/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/parastatal/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updateMinistry = createAsyncThunk(
     'ministry/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/ministry/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updateStateDepartment = createAsyncThunk(
     'stateDepartment/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/stateDepartment/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updateLearningInstitution = createAsyncThunk(
     'leaningInstitution/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/learningInstitution/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updateCounties = createAsyncThunk(
     'counties/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/counties/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updatePresidency = createAsyncThunk(
     'presidency/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/presidency/update/${id}`,{rejectWithValue});
     }
 )
 
 export const updatePrivateOrganization = createAsyncThunk(
     'privateOrganizations/update',
     async ({id,data},{rejectWithValue}) => {
-        return await CRUDMethods.update(data,`/boards/update/${id}`,{rejectWithValue});
+        return await CRUDMethods.update(data,`/private/update/${id}`,{rejectWithValue});
     }
 )
 

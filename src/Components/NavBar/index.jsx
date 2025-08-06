@@ -3,7 +3,7 @@ import dp from '../../assets/dp.jpg';
 import {useDispatch} from "react-redux";
 import {logout} from "../../Redux/Reducers/AuthSlice.js";
 import {message} from "antd";
-import {removeSessionItem} from "../../utils/SessionStorage/sessionStorage.js";
+import {getFromSessionStorage, removeSessionItem} from "../../utils/SessionStorage/sessionStorage.js";
 import {useNavigate} from "react-router-dom";
 
 const ProfileDropdown = () => {
@@ -23,10 +23,16 @@ const ProfileDropdown = () => {
         })
     }
 
-    const userNavigation = [
+    const userRole = getFromSessionStorage('user')?.responseData
+
+    const userNavigation = userRole.role==="ADMIN"? [
+        { label: "Profile", onclick: () => navigate('/profile') },
+        { label: "Manage Users", onclick: () => navigate('/manage_users') },
+        { label: "Sign out", onclick: () => Logout() },
+    ]:[
         { label: "Profile", onclick: () => console.log("Profile Clicked") },
         { label: "Sign out", onclick: () => Logout() },
-    ];
+    ]
 
     return (
         <div className="relative flex h-16 items-center justify-end">
@@ -34,7 +40,7 @@ const ProfileDropdown = () => {
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Menu as="div" className="relative">
                     <div>
-                        <MenuButton className="relative flex rounded-full bg-green-200 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-800">
+                        <MenuButton className="relative flex cursor-pointer rounded-full bg-green-200 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
                             <img
