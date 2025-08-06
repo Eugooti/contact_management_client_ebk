@@ -10,12 +10,12 @@ import {
     PlusOutlined,
     UnorderedListOutlined,
     AppstoreOutlined,
-    EditFilled,
+    EditFilled, DownloadOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { readContacts } from '../Redux/Reducers/contactsSlice';
-import {LocationOn, PersonAdd} from '@mui/icons-material';
+import {Download, Downloading, LocationOn, PersonAdd} from '@mui/icons-material';
 import AddressCard from "../Components/cards/AddressCard.jsx";
 import AddressModal from "../Components/Modals/AddressModal.jsx";
 import ContactModal from "../Components/Modals/ContactModal.jsx";
@@ -326,6 +326,7 @@ const ContactManagement = () => {
                                             <Button block icon={<TeamOutlined />} onClick={() => navigate('/private')}>
                                                 Private ORG
                                             </Button>
+
                                         </div>
                                     }
                                     title="Select Contact Type"
@@ -340,6 +341,7 @@ const ContactManagement = () => {
                                         Add New Contact
                                     </Button>
                                 </Popover>
+                                <Button icon={<DownloadOutlined/>} onClick={()=>navigate('/mail_merge')} >Download Contacts</Button>
                             </div>
                         )}
                     </div>

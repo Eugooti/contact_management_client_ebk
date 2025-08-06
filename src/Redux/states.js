@@ -59,6 +59,11 @@ export const initialState = {
         error: null,
         user:null,
         usersList:null,
+    },
+    mailMerge:{
+        loading:false,
+        error: null,
+        mailMergeList:null,
     }
 }
 

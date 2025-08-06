@@ -10,6 +10,7 @@ const CreateUser = lazy(() => import("./Users/CreateUser.jsx"));
 const ManageUsers = lazy(() => import("./Users/ManageUsers.jsx"));
 const UserProfile = lazy(() => import("./Users/UserProfile.jsx"));
 const Unauthorized = lazy(() => import("./Auth/Unauthorized.jsx"));
+const MailMerge = lazy(() => import("./MailMerge/MailMerge.jsx"));
 import {NavBarProvider} from "../context/NavBarContext.jsx";
 import {Button, Result} from "antd";
 
@@ -75,6 +76,7 @@ const Pages = () => {
                                   <Route exact path='/public' element={<PublicOrganization/>}/>
                                   <Route exact path='/new_user' element={<CreateUser/>}/>
                                   <Route exact path='/manage_users' element={<ManageUsers/>}/>
+                                  <Route exact path='/mail_merge' element={<MailMerge/>}/>
                               </Route>
                           </Route>
                       </Route>
